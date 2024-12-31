@@ -1,0 +1,106 @@
+/* Основные стили */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    min-height: 100vh;
+    width: 50rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Стили для настроек */
+.settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.timeControl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.timeControl label {
+    font-size: 1rem;
+    color: #555;
+}
+
+.timeControl input {
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.timeControl input:focus {
+    border-color: #007bff;
+}
+
+/* Стили для кнопки паузы */
+.pauseButton {
+    margin: 20px 0;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pauseButton:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для сетки карт */
+.game__list {
+    display: grid;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Адаптивные стили для сетки карт */
+@media (max-width: 600px) {
+    .game__list {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на маленьких экранах */
+    }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+    .game__list {
+        grid-template-columns: repeat(3, 1fr); /* 3 колонки на средних экранах */
+    }
+}
+
+@media (min-width: 900px) {
+    .game__list {
+        grid-template-columns: repeat(4, 1fr); /* 4 колонки на больших экранах */
+    }
+}
