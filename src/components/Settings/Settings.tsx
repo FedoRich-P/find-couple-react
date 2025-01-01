@@ -32,12 +32,12 @@ export const Settings = ({ setSelectedSize, handleFormSubmit, setCustomTime, cus
     return (
         <div className={s.settings}>
             <div className={s.sizeButtons}>
-                <button
-                    className={`${s.sizeButton} ${activeSize === 2 ? s.active : ''}`}
-                    onClick={() => handleSizeClick(2)}
-                >
-                    <span>2x2</span>
-                </button>
+                {/*<button*/}
+                {/*    className={`${s.sizeButton} ${activeSize === 2 ? s.active : ''}`}*/}
+                {/*    onClick={() => handleSizeClick(2)}*/}
+                {/*>*/}
+                {/*    <span>2x2</span>*/}
+                {/*</button>*/}
                 <button
                     className={`${s.sizeButton} ${activeSize === 4 ? s.active : ''}`}
                     onClick={() => handleSizeClick(4)}

@@ -1,6 +1,5 @@
 
 .card {
-    width: 100%;
     aspect-ratio: 1;
     display: flex;
     align-items: center;
@@ -11,6 +10,8 @@
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
+    width: calc(25vw - 20px); /* 20% ширины экрана минус отступы */
+    max-width: 100px; /* Максимальный размер карточки */
 }
 
 .card:hover {
