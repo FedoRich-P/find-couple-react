@@ -6,7 +6,7 @@
     justify-content: center;
     background-color: #007bff;
     border-radius: 8px;
-    font-size: clamp(3.5rem, 4vw, 2.4rem);
+    font-size: clamp(2.4rem, 4vw, 3.7rem);
     font-weight: bold;
     /*font-size: 24px;*/
     cursor: pointer;
@@ -30,4 +30,15 @@
     background-color: #28a745;
     color: white;
     cursor: default;
+}
+
+@media (max-width: 600px) {
+    .card {
+        width: calc(15vw - 10px);
+    }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+    .card {
+        width: calc(10vw - 5px);
+    }
 }
