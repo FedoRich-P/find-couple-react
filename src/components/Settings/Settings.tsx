@@ -18,14 +18,15 @@ export const Settings = ({ setSelectedSize, handleFormSubmit, setCustomTime, cus
         setActiveSize(size);
     };
 
-    const handleTimeSubmit = (e: React.FormEvent) => {
+    const handleTimeSubmit = (e: FormEvent) => {
         e.preventDefault();
         const value = parseInt((e.target as HTMLFormElement).time.value);
         if (value >= 10 && value <= 500) {
             setCustomTime(value);
             setTimeInput(value);
         } else {
-            alert('Please enter a valid time between 10 and 300 seconds.');
+            alert('Введи правильно время - от 10 до 500 сек. ');
+            // alert('Please enter a valid time between 10 and 300 seconds.');
         }
     };
 
@@ -42,27 +43,28 @@ export const Settings = ({ setSelectedSize, handleFormSubmit, setCustomTime, cus
                     className={`${s.sizeButton} ${activeSize === 4 ? s.active : ''}`}
                     onClick={() => handleSizeClick(4)}
                 >
-                    <span>4x4</span>
+                    <span>Выбрать 4x4</span>
                 </button>
                 <button
                     className={`${s.sizeButton} ${activeSize === 6 ? s.active : ''}`}
                     onClick={() => handleSizeClick(6)}
                 >
-                    <span>6x6</span>
+                    <span>Выбрать 6x6</span>
                 </button>
             </div>
-            <form onSubmit={handleFormSubmit}>
+            <form className={s.form} onSubmit={handleFormSubmit}>
                 <label className={s.label}>
-                    Set Size (2-10):
-                    <input className={s.input} type="number" name="size" min="2" max="10" />
+                    Задать размер <br/>
+                    (чётное число):
+                    <input className={s.input} type="number" name="size" min="2" max="10"/>
                 </label>
                 <button type="submit" className={s.setSizeButton}>
-                    <span>Set Size</span>
+                    <span>⬅️ Установить размер </span>
                 </button>
             </form>
-            <form onSubmit={handleTimeSubmit}>
+            <form className={s.form} onSubmit={handleTimeSubmit}>
                 <label className={s.label}>
-                    Set Time (seconds):
+                    Задать время (сек.):
                     <input className={s.input}
                         type="number"
                         name="time"
@@ -73,7 +75,7 @@ export const Settings = ({ setSelectedSize, handleFormSubmit, setCustomTime, cus
                     />
                 </label>
                 <button type="submit" className={s.setSizeButton}>
-                    <span>Set Time</span>
+                    <span>⬅️ Установить время</span>
                 </button>
             </form>
         </div>

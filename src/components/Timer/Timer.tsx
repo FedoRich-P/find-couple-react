@@ -14,7 +14,7 @@ export const Timer = ({ time, isPaused }: TimerProps) => {
 
     return (
         <div className={s.timer}>
-            Time left: {formatTime(time)} {isPaused ? '(Paused)' : ''}
+            Осталось времени: {formatTime(time)} {isPaused ? '(На паузе)' : ''}
         </div>
     );
 };

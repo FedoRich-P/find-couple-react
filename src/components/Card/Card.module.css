@@ -34,7 +34,7 @@
 
 @media (max-width: 600px) {
     .card {
-        width: calc(15vw - 10px);
+        width: calc(17vw - 6px);
     }
 }
 @media (min-width: 601px) and (max-width: 1024px) {

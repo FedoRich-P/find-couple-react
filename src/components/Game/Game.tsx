@@ -171,7 +171,7 @@ export const Game = () => {
 
     return (
         <div className={s.container}>
-            <h1 className={s.title}>Guess the Couple</h1>
+            <h1 className={s.title}>Найди пару</h1>
             {!gameState.gameStarted ? (
                 <>
                     {bestStats && <Stats bestStats={bestStats} />}
@@ -181,7 +181,7 @@ export const Game = () => {
                         setCustomTime={setCustomTime}
                         customTime={customTime}
                     />
-                    <button onClick={startGame} className={s.startButton}>Start Game</button>
+                    <button onClick={startGame} className={s.startButton}>Начать игру</button>
                 </>
             ) : (
                 <>

@@ -11,9 +11,9 @@ export const Controls = ({ isPaused, togglePause, resetGame }: ControlsProps) =>
     return (
         <div className={s.controls}>
             <button onClick={togglePause} className={s.pauseButton}>
-                {isPaused ? 'Resume' : 'Pause'}
+                {isPaused ? 'Продолжить' : 'Пауза'}
             </button>
-            <button onClick={resetGame} className={s.backButton}>Back</button>
+            <button onClick={resetGame} className={s.backButton}>Назад</button>
         </div>
     );
 };

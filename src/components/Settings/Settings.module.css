@@ -99,7 +99,7 @@
     transform: translate(-50%, -50%) scale(1);
 }
 
-form {
+.form {
     margin-top: 2rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -129,3 +129,11 @@ form {
     border-color: #007bff;
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
 }
+
+@media (max-width: 600px) {
+    .form {
+        grid-template-columns: 1fr;
+        row-gap: 1rem;
+    }
+}
+

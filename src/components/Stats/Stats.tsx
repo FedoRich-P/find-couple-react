@@ -12,11 +12,11 @@ export const Stats = ({ bestStats }: StatsProps) => {
 
     return (
         <div className={s.bestTime}>
-            <h3>Best Stats</h3>
+            <h3>Лучшее время</h3>
             <p>
-                Time per Card: <strong>{bestStats.timePerCard} seconds</strong> /
-                Time: <strong>{bestStats.time} sec.</strong> /
-                Cards: <strong>{bestStats.cards}</strong>
+                Время на одну карту: <strong>{bestStats.timePerCard} сек.</strong> /
+                Общее время: <strong>{bestStats.time} сек.</strong> /
+                Карт: <strong>{bestStats.cards}</strong>
             </p>
         </div>
     );
