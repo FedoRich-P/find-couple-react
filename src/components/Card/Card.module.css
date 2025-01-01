@@ -6,12 +6,14 @@
     justify-content: center;
     background-color: #007bff;
     border-radius: 8px;
-    font-size: 24px;
+    font-size: clamp(3.5rem, 4vw, 2.4rem);
+    font-weight: bold;
+    /*font-size: 24px;*/
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
-    width: calc(25vw - 20px); /* 20% ширины экрана минус отступы */
-    max-width: 100px; /* Максимальный размер карточки */
+    width: calc(13vw - 12px);
+    max-width: 100px;
 }
 
 .card:hover {
