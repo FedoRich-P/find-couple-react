@@ -15,7 +15,7 @@ export const Modal = ({ modalTitle, modalMessage, onClose, onRestart }: ModalPro
                 <p>{modalMessage}</p>
                 <div className={s.modalButtons}>
                     <button className={s.modalButton} onClick={onClose}>Закрыть</button>
-                    <button className={s.modalButton} onClick={onRestart}>Еще раз ?</button>
+                    <button className={s.modalButton} onClick={onRestart}>Сыграем ещё ?</button>
                 </div>
             </div>
         </div>

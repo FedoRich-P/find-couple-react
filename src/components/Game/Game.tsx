@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, FormEvent} from 'react';
 import s from './Game.module.css';
 import { Settings } from "../Settings/Settings";
 import { Timer } from "../Timer/Timer";
@@ -28,7 +28,6 @@ export const Game = () => {
     const [modalContent, setModalContent] = useState({ title: '', message: '' });
     const [bestStats, setBestStats] = useState<{ time: number; cards: number; timePerCard: number } | null>(null);
 
-    // Load best stats from localStorage
     useEffect(() => {
         const stats = localStorage.getItem('bestStats');
         if (stats) {
@@ -94,11 +93,11 @@ export const Game = () => {
                     const endTime = Date.now();
                     const elapsedTime = Math.floor((endTime - gameState.startTime - gameState.pauseDuration) / 1000);
                     const timePerCard = elapsedTime / (gameState.gridSize * gameState.gridSize);
-                    setModalContent({ title: 'Congratulations! 🎉', message: `You won the game in ${elapsedTime} seconds!` });
+                    setModalContent({ title: 'Поздравляем !!! 🎉', message: `Ты выйграл(а), твое время ${elapsedTime} сек.!` });
                     setGameState((prev) => ({
                         ...prev,
                         isModalOpen: true,
-                        gameStarted: false // Останавливаем игру и таймер
+                        gameStarted: false
                     }));
 
                     const stats = { time: elapsedTime, cards: gameState.gridSize * gameState.gridSize, timePerCard };
@@ -116,11 +115,11 @@ export const Game = () => {
         }
     };
 
-    const handleFormSubmit = (e: React.FormEvent) => {
+    const handleFormSubmit = (e: FormEvent) => {
         e.preventDefault();
         const value = parseInt((e.target as HTMLFormElement).size.value);
         if (value < 2 || value > 10 || value % 2 !== 0) {
-            setModalContent({ title: 'Invalid Input', message: 'Please enter a valid even number from 2 to 10.' });
+            setModalContent({ title: 'Не верное значение...', message: 'Введи правильно число от 2 до 10.' });
             setGameState((prev) => ({ ...prev, isModalOpen: true }));
         } else {
             setGameState((prev) => ({ ...prev, selectedSize: value }));
@@ -128,8 +127,8 @@ export const Game = () => {
     };
 
     const handleTimeUp = () => {
-        setModalContent({ title: 'Time is up! ⏰', message: 'You lost the game.' });
-        setGameState((prev) => ({ ...prev, isModalOpen: true, gameStarted: false })); // Останавливаем игру и таймер
+        setModalContent({ title: 'Время закончилось ! ⏰', message: 'Ты проиграл (' });
+        setGameState((prev) => ({ ...prev, isModalOpen: true, gameStarted: false }));
     };
 
     const togglePause = () => {
@@ -146,8 +145,11 @@ export const Game = () => {
 
         const tick = () => {
             setGameState((prev) => {
-                if (prev.time <= 0 || !prev.gameStarted) { // Останавливаем таймер, если игра завершена
+                if (prev.time <= 0 || !prev.gameStarted) {
                     if (timer) clearTimeout(timer);
+                    if (prev.time <= 0) {
+                        handleTimeUp();
+                    }
                     return { ...prev, time: 0 };
                 }
                 return { ...prev, time: prev.time - 1 };
