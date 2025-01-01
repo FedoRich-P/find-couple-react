@@ -1,19 +1,19 @@
 import s from './Card.module.css';
 
 type CardProps = {
-    number: number;
+    value: number;
+    isFlipped: boolean;
+    isMatched: boolean;
     onClick: () => void;
-    isOpen: boolean;
-    isSuccess: boolean;
-}
+};
 
-export const Card = ({number, onClick, isOpen, isSuccess}: CardProps) => {
+export const Card = ({ value, isFlipped, isMatched, onClick }: CardProps) => {
     return (
-        <li
-            className={`${s.card} ${isOpen ? s.open : ''} ${isSuccess ? s.success : ''}`}
+        <div
+            className={`${s.card} ${isFlipped ? s.flipped : ''} ${isMatched ? s.matched : ''}`}
             onClick={onClick}
         >
-            <span>{isOpen || isSuccess ? number : ''}</span>
-        </li>
+            {(isFlipped || isMatched) ? value : ''}
+        </div>
     );
 };

@@ -1,6 +1,8 @@
 .form {
     display: flex;
     flex-direction: column;
+    gap: 15px;
+    width: 100%;
 }
 
 .game__input {
@@ -11,6 +13,11 @@
     border-radius: 10px;
     font-size: 20px;
     transition: all 0.3s ease;
+}
+
+.game__input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
 }
 
 .closed__input {
@@ -29,4 +36,10 @@
     background-color: cadetblue;
     cursor: pointer;
     font-size: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: #5f9ea0;
+    transform: translateY(-2px);
 }

@@ -1,0 +1,35 @@
+.bestTime {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+    line-height: 1.5;
+    width: 70%;
+}
+
+.bestTime h3 {
+    font-size: clamp(1.1rem, 4vw, 1.2rem);
+    color: #333;
+    font-weight: 700;
+}
+
+.bestTime strong {
+    color: #007bff;
+    font-weight: 600;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

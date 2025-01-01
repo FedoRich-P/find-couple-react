@@ -1,0 +1,37 @@
+.controls {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.pauseButton {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pauseButton:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.backButton {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.backButton:hover {
+    background-color: #a71d2a;
+    transform: translateY(-2px);
+}

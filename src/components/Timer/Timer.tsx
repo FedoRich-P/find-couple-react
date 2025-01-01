@@ -1,19 +1,20 @@
 import s from './Timer.module.css';
-import {useEffect, useState} from "react";
 
-export const Timer = ({ initialTime, onTimeUp }) => {
-    const [time, setTime] = useState(initialTime);
+type TimerProps = {
+    time: number;
+    isPaused: boolean;
+}
 
-    useEffect(() => {
-        if (time > 0) {
-            const timer = setInterval(() => {
-                setTime((prevTime) => prevTime - 1);
-            }, 1000);
-            return () => clearInterval(timer);
-        } else {
-            onTimeUp();
-        }
-    }, [time, onTimeUp]);
+export const Timer = ({ time, isPaused }: TimerProps) => {
+    const formatTime = (timeInSeconds: number): string => {
+        const minutes = Math.floor(timeInSeconds / 60);
+        const seconds = timeInSeconds % 60;
+        return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    };
 
-    return <div className={s.timer}>Time left: {time} seconds</div>;
+    return (
+        <div className={s.timer}>
+            Time left: {formatTime(time)} {isPaused ? '(Paused)' : ''}
+        </div>
+    );
 };

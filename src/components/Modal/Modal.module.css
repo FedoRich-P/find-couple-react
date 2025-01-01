@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
 }
 
 .modalContent {
@@ -18,7 +19,12 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
     max-width: 400px;
-    width: 100%;
+    width: 90%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: slideIn 0.3s ease-out;
 }
 
 .modalContent h2 {
@@ -33,7 +39,13 @@
     margin-bottom: 20px;
 }
 
-.modalCloseButton {
+.modalButtons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.modalButton {
     padding: 10px 20px;
     font-size: 1rem;
     cursor: pointer;
@@ -41,9 +53,28 @@
     color: white;
     border: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.modalCloseButton:hover {
+.modalButton:hover {
     background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translate(-50%, -60px);
+    }
+    to {
+        transform: translate(-50%, -50%);
+    }
 }
